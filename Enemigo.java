@@ -5,7 +5,7 @@
 //José Daniel Gómez Cabrera
 //Carné 21429
 //Sección 11
-//Actividad: Ejercicio 4
+//Actividad: Ejercicio 5
 
 import java.util.Random;
 

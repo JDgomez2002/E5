@@ -8,25 +8,25 @@
 //Actividad: Ejercicio 5
 
 /**
- * Clase Explorador.
+ * Clase Guerrero.
  * 
  * @author José Daniel Gómez cabrera
- * @version Explorador Class 1.1
+ * @version Guerrero Class 1.1
  */
-public class Explorador extends Jugador{
+public class Cazador extends Jugador{
+    private Mascota mascota;
     
     /**
      * Constructor.
      * 
      * @author José Daniel Gómez cabrera
-     * @version Explorador 1.1
+     * @version Guerrero 1.1
      * @param String nombre
      */
-    public Explorador(String nombre){
-        super(nombre, 100, 30);
-        agregar_item("Trampa", 20, 1);
-        agregar_item("Onda", 10, 1);
-        agregar_item("Arco y Flecha", 30, 3);
-        agregar_item("Catana", 25, 1);
+    public Cazador(String nombre){
+        super(nombre, 80, 25);
+        agregar_item("Trampa de Cazador", 20, 2);
+        agregar_item("Red de Cazador", 15, 1);
+        this.mascota = new Mascota();
     }
 }
