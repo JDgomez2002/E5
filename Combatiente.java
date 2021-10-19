@@ -78,4 +78,8 @@ public class Combatiente{
         info_combatiente[2] = Integer.toString(this.poder_ataque);
         return info_combatiente;
     }
+
+    public String get_nombre(){
+        return this.nombre;
+    }
 }

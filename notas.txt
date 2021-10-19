@@ -1,0 +1,23 @@
+
+
+hacer metodo para recibir 3 int[] y 3 String[]
+
+metodo para recibir el tipo de enemigo_raid y el indice enemigo para los enemigos normales
+
+hacer metodos de vista
+
+hacer metodo para recibir el indice del jugador objetivo en ataque del raidboss a los jugadores
+
+metodo para recibir habilidad del clon
+
+
+
+
+
+
+
+
+bienvenida
+1. solicitar nombres y tipos (uno por uno)
+2. campo batalla (overwriteado)
+

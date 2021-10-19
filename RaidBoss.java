@@ -27,15 +27,50 @@ public class RaidBoss extends JefeEnemigo{
         this.titulo = "SUPER MEGA PODEROSO";
     }
 
-    public void clonar(){
-        
+    /**
+     * clonar RaidBoss.
+     * 
+     * @author José Daniel Gómez Cabrera 21429
+     * @version clonar 1.1
+     * @return String
+     */
+    public String clonar(){
+        String s = "RaidBoss clonado!";
+        return s;
     }
 
-    public void variar(){
-
+    /**
+     * variar RaidBoss.
+     * 
+     * @author José Daniel Gómez Cabrera 21429
+     * @version variar 1.1
+     * @return String
+     */
+    public String variar(){
+        String s = "Asignando habilidad especial a los clones!!";
+        return s;
     }
 
-    public void liberar(){
-        
+    /**
+     * liberar RaidBoss.
+     * 
+     * @author José Daniel Gómez Cabrera 21429
+     * @version liberar 1.1
+     * @return String
+     */
+    public String liberar(){
+        String s = "Desaciendose de esos clones inutiles!!";
+        return s;
+    }
+
+    /**
+     * get_titulo RaidBoss.
+     * 
+     * @author José Daniel Gómez Cabrera 21429
+     * @version get_titulo 1.1
+     * @return String
+     */
+    public String get_titulo(){
+        return this.titulo;
     }
 }

@@ -13,79 +13,81 @@
  * @author José Daniel Gómez cabrera
  * @version Mascota Class 1.1
  */
-public class Mascota extends Acompanante{
-    private boolean mascota_lanzada;
-    private boolean mascota_viva;
+public class Clon extends Acompanante{
+    private boolean clon_lanzado;
+    private boolean clon_vivo;
+    private String habilidad_clon;
    
     /**
      * Constructor
      * 
      * @author José Daniel Gómez Cabrera
-     * @version Mascota 1.1
+     * @version Clon 1.1
      */
-    public Mascota(){
-        super("Mascotita", 50, 20);
-        this.mascota_lanzada = false;
-        this.mascota_viva = true;
+    public Clon(String habilidad, String nombre){
+        super(nombre, 500, 100);
+        this.clon_lanzado = false;
+        this.clon_vivo = true;
+        this.habilidad_clon = habilidad;
     }
    
     /**
-     * metodo para regenerar mascota despues de ciertos turnos
+     * metodo para regenerar clon despues de ciertos turnos
      * 
      * @author José Daniel Gómez Cabrera
      * @version regenerar 1.1
      */
     public void regenerar(){
-        this.mascota_lanzada = false;
+        this.clon_lanzado = false;
     }
 
     /**
      * metodo para reducir la vida de la mascota
      * 
      * @author José Daniel Gómez Cabrera
-     * @version reducir_vida_mascota 1.1
+     * @version reducir_vida_clon 1.1
      */
-    public void reducir_vida_mascota(int dano_recibido){
+    public void reducir_vida_clon(int dano_recibido){
         if(this.vida>0){
             this.vida -= dano_recibido;
         }
         else{
-            this.mascota_viva = false;
+            this.clon_vivo = false;
         }
     }
 
     /**
-     * lanzar mascota, definida obligadamente por abstract
+     * lanzar clon, definida obligadamente por abstract
      * 
      * @author José Daniel Gómez Cabrera
      * @version lanzarse 1.1
      */
     public String lanzarse(){
-        String s = "La mascota se ha lanzado!";
-        this.mascota_lanzada = true;
+        String s = "El clon se ha lanzado!";
+        this.clon_lanzado= true;
         return s;
     }
 
     /**
-     * matar mascota, definida obligadamente por abstract
+     * matar clon, definida obligadamente por abstract
      * 
      * @author José Daniel Gómez Cabrera
      * @version morir 1.1
      */
     public String morir(){
-        String s = "La mascota ha muerto!";
-        this.mascota_viva = false;
+        String s = "El clon ha muerto!";
+        this.clon_vivo = false;
         return s;
     }
 
     /**
-     * atacar con mascota, definida obligadamente por abstract
+     * atacar con clon, definida obligadamente por abstract
      * 
      * @author José Daniel Gómez Cabrera
      * @version atacar 1.1
      */
     public String atacar(){
-        String s = "La mascota esta atacando!";
+        String s = "El clon esta atacando!";
         return s;
     }
 

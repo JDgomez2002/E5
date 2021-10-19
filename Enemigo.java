@@ -61,4 +61,8 @@ public class Enemigo extends Combatiente {
     public String get_tipo_enemigo(){
         return this.tipo_enemigo;
     }
+
+    public String get_nombre(){
+        return this.nombre;
+    }
 }

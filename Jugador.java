@@ -67,4 +67,8 @@ public class Jugador extends Combatiente{
     public void set_item(int indice){
         this.items.get(indice).set_durabilidad();
     }
+
+    public String get_nombre(){
+        return this.nombre;
+    }
 }

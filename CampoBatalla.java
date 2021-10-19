@@ -21,6 +21,14 @@ public class CampoBatalla {
     private ArrayList<Enemigo> enemigos = new ArrayList<Enemigo>();
     private String habiliad_usada;
 
+    private Jugador[] jugadores_raid = new Jugador[3];
+    private RaidBoss jefe_maestro_raid;
+    private JefeEnemigo jefe_raid;
+    private ArrayList<Enemigo> enemigos_raid = new ArrayList<Enemigo>();
+    private ArrayList<Clon> clones_raid = new ArrayList<Clon>();
+
+
+
     /**
      * Constructor.
      * 
@@ -142,4 +150,120 @@ public class CampoBatalla {
         }
         return salud_total_enemigos;
     }
+
+    ////////////////////////////////////////////////////////////////////////////////
+    /*Seccion de RAID*/
+    ////////////////////////////////////////////////////////////////////////////////
+
+    /**
+     * Constructor overwriting.
+     * 
+     * @author José Daniel Gómez Cabrera
+     * @version CampoBatalla 1.1
+     * @param int[],String[]
+     */
+    public CampoBatalla(int[] tipo_jugadores, String[] nombres_jugadores){
+        for(int k = 0; k<3; k++){    
+            if(tipo_jugadores[k]==1){
+                this.jugadores_raid[k] = new Guerrero(nombres_jugadores[k]);
+            }
+            else if(tipo_jugadores[k]==2){
+                this.jugadores_raid[k] = new Explorador(nombres_jugadores[k]);
+            }
+            else{
+                this.jugadores_raid[k] = new Cazador(nombres_jugadores[k]);
+            }
+        }
+        this.jefe_maestro_raid = new RaidBoss();
+        this.jefe_raid = new JefeEnemigo("JEFE", 250, 40);
+        for(int k = 0; k<3; k++){
+            Enemigo enemigo_k = new Enemigo("Enemigo "+(k+1), 100, 25);
+            this.enemigos_raid.add(enemigo_k);
+        }
+    }
+
+    /**
+     * ataque de un jugador a un enemigo en RAID.
+     * 
+     * @author José Daniel Gómez Cabrera
+     * @version ataque_jugador_raid 1.1
+     * @param int,int,int
+     */
+    public void ataque_jugador_raid(int numero_de_jugador, int tipo_enemigo, int indice_enemigo){
+        int dano_jugador = this.jugadores_raid[numero_de_jugador].get_poder_ataque();
+        if(tipo_enemigo == 1){
+            this.jefe_maestro_raid.set_vida(dano_jugador);
+        }
+        else if(tipo_enemigo == 2){
+            this.jefe_raid.set_vida(dano_jugador);
+        }
+        else{
+                this.enemigos_raid.get(indice_enemigo).set_vida(dano_jugador);
+        }
+    }
+
+    /**
+     * ataque del raidboss a un jugador en RAID.
+     * 
+     * @author José Daniel Gómez Cabrera
+     * @version ataque_enemigo_raid 1.1
+     * @param int
+     */
+    public void ataque_enemigo_raid(int jugador_objetivo){
+        int dano_raidboss = this.jefe_maestro_raid.get_poder_ataque();
+        this.jugadores_raid[jugador_objetivo].set_vida(dano_raidboss);
+    }
+
+    /**
+     * clonar RaidBoss
+     * 
+     * @author José Daniel Gómez Cabrera
+     * @version clonar_raid_boss 1.1
+     * @param String
+     */
+    public void clonar_raid_boss(String habilidad){
+        int numero_de_clones = ((this.clones_raid.size())+1);
+        String numero_clon = "Clon "+numero_de_clones;
+        Clon c = new Clon(habilidad, numero_clon);
+        this.clones_raid.add(c);
+    }
+
+    public Jugador[] get_jugadores_raid(){
+        return this.jugadores_raid;
+    }
+
+    public int get_vida_total_jugadores_raid(){
+        int vida_jugadores = 0;
+        for(int k = 0; k<this.jugadores_raid.length; k++){
+            vida_jugadores += this.jugadores_raid[k].get_vida();
+        }
+        return vida_jugadores;
+    }
+
+    public RaidBoss get_raid_boss_raid(){
+        return this.jefe_maestro_raid;
+    }
+
+    public JefeEnemigo get_jefe_raid(){
+        return this.jefe_raid;
+    }
+
+    public ArrayList<Enemigo> get_enemigos_raid(){
+        return this.enemigos_raid;
+    }
+
+    public ArrayList<Clon> get_clones_raid(){
+        return this.clones_raid;
+    }
+
+    public int get_vida_total_enemigos_raid(){
+        int vida_enemigos = 0;
+        vida_enemigos += this.jefe_maestro_raid.get_vida();
+        vida_enemigos += this.jefe_raid.get_vida();
+        for(int k = 0; k<this.enemigos_raid.size() ;k++){
+            vida_enemigos += this.enemigos_raid.get(k).get_vida();
+        }
+        return vida_enemigos;
+    }
+
 }

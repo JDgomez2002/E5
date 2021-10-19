@@ -17,7 +17,7 @@ public class MAIN {
     public static void main(String[] args) {
         try{
             Controlador programa = new Controlador();
-            programa.Simulador_de_batalla();
+            programa.simulador_de_batalla_raid();
         }
         catch(Exception e){
             String s = "Ha ocurrido un error: "+e.getMessage();
